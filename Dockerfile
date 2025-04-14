@@ -1,16 +1,10 @@
-FROM nginx:alpine
+FROM openresty/openresty:alpine-fat
 
-# Create a simple error page
-RUN echo '<html><body><h1>Error</h1><p>The requested operation could not be completed.</p></body></html>' > /usr/share/nginx/html/error.html
+# Copy nginx configuration
+COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
-# Remove default config
-RUN rm /etc/nginx/conf.d/default.conf
+# Expose the port
+EXPOSE 80
 
-# Copy our custom configuration
-COPY nginx.conf /etc/nginx/conf.d/proxy.conf
-
-# Expose the port we want to run on
-EXPOSE 1026
-
-# Use the "daemon off" directive to keep the container running
-CMD ["nginx", "-g", "daemon off;"]
+# Command to run
+CMD ["/usr/local/openresty/bin/openresty", "-g", "daemon off;"]
