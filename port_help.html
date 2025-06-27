@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Proxy Service - Help</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Port Proxy Service</h1>
+        <p>This service proxies HTTP requests to localhost ports using the port number in the URL path.</p>
+        
+        <h2>How to use:</h2>
+        <p>Access <code>http://this-server/[port]/path</code> to proxy to <code>http://localhost:[port]/path</code></p>
+        
+        <h2>Port Range:</h2>
+        <p>Valid ports: <strong>1027 - 19999</strong></p>
+        
+        <h2>Examples:</h2>
+        <div class="example">
+            <p><strong>Web application on port 3000:</strong></p>
+            <p><code>GET /3000/</code> → <code>http://localhost:3000/</code></p>
+        </div>
+        
+        <div class="example">
+            <p><strong>API endpoint on port 8080:</strong></p>
+            <p><code>GET /8080/api/v1/users</code> → <code>http://localhost:8080/api/v1/users</code></p>
+        </div>
+        
+        <div class="example">
+            <p><strong>WebSocket connection:</strong></p>
+            <p><code>WS /4000/socket</code> → <code>ws://localhost:4000/socket</code></p>
+        </div>
+        
+        <h2>Features:</h2>
+        <ul>
+            <li>✅ HTTP/HTTPS proxying</li>
+            <li>✅ WebSocket support</li>
+            <li>✅ Query parameters preserved</li>
+            <li>✅ Request headers forwarded</li>
+            <li>✅ Automatic path cleaning</li>
+        </ul>
+        
+        <div class="footer">
+            <p>Need help? Check the <a href="/health">service status</a> or contact your administrator.</p>
+        </div>
+    </div>
+</body>
+</html>
